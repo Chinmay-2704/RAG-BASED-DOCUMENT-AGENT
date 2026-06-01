@@ -4,10 +4,6 @@ A clean, end-to-end **Retrieval-Augmented Generation (RAG)** agent with an inter
 Upload your documents (PDF / DOCX / TXT / MD), ask questions, and get cited answers — with an optional
 real-time **web search fallback** and a transparent **agent trace** that shows every step the AI took.
 
-> Inspired by [dhruvbajaj13/RAG-Based-AI-Document-Agent](https://github.com/dhruvbajaj13/RAG-Based-AI-Document-Agent),
-> rewritten as a simpler single-app architecture using **FAISS** (local vector DB) instead of Pinecone so
-> you can run it without extra cloud accounts.
-
 ---
 
 ## ✨ Features
@@ -62,29 +58,6 @@ The app opens at <http://localhost:8501>.
 
 ---
 
-## 🗂️ Project structure
-
-```
-ragapp/
-├── main.py                    # Entry point
-├── requirements.txt
-├── .env.example
-├── app/
-│   ├── config.py              # Env vars + tunable constants
-│   ├── streamlit_app.py       # UI
-│   └── core/
-│       ├── ingest.py          # File loaders + chunk splitter
-│       ├── vectorstore.py     # FAISS wrapper (load / add / search)
-│       ├── web_search.py      # Tavily client
-│       └── agent.py           # LangGraph workflow
-├── data/vectorstore/          # Persisted FAISS index (auto-created)
-└── PROJECT_GUIDE.md           # Detailed code-walkthrough
-```
-
-See **PROJECT_GUIDE.md** for a full line-by-line explanation of every file and why each library is used.
-
----
-
 ## 🧩 Tech stack at a glance
 
 | Layer       | Tool                                             | Why                                  |
@@ -96,9 +69,3 @@ See **PROJECT_GUIDE.md** for a full line-by-line explanation of every file and w
 | Vector DB   | FAISS                                            | Local, zero-config, fast             |
 | Web search  | Tavily                                           | LLM-optimized search API             |
 | Loaders     | pypdf, docx2txt                                  | Battle-tested document parsers       |
-
----
-
-## 📜 License
-
-MIT — do whatever you want, just don't blame me. 🙃
